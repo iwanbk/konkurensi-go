@@ -7,5 +7,6 @@
   * [Channel](dasar-dasar-konkurensi/channel.md)
   * [sync Package](dasar-dasar-konkurensi/sync-package.md)
   * [Context](dasar-dasar-konkurensi/context.md)
-* [Patterns](patterns.md)
+* [Patterns](patterns/README.md)
+  * [Generator](patterns/generator.md)
 
