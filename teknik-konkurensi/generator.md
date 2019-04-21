@@ -4,7 +4,12 @@ description: Func yang me-return channel
 
 # Generator
 
-Generator adalah pattern dimana suatu `func` membuat `goroutine` yang melakukan suatu komputasi dan me-return receive-only `channel`yang dapat digunakan oleh pemanggil `func` untuk menerima value yang dihasilkan oleh `goroutine`tersebut.
+Generator adalah pattern dimana suatu `func` melakukan hal-hal berikut:
+
+* membuat `goroutine` yang melakukan suatu komputasi 
+* me-return `channel` untuk menampung hasil komputasi tersebut
+
+Kemudian channel yang di-return  dapat digunakan oleh pemanggil `func` untuk menerima value yang dihasilkan oleh `goroutine`tersebut.
 
 Contoh
 
@@ -58,6 +63,8 @@ func main() {
 ```
 
 playground: [https://play.golang.org/p/rdmMwMzpQMS](https://play.golang.org/p/rdmMwMzpQMS)
+
+ref: [https://talks.golang.org/2012/concurrency.slide\#25](https://talks.golang.org/2012/concurrency.slide#25)
 
 
 

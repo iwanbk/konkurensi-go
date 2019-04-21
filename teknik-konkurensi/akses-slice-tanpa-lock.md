@@ -1,0 +1,2 @@
+# Akses Slice tanpa Lock
+
