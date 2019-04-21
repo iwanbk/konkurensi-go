@@ -4,9 +4,7 @@ description: Func yang me-return channel
 
 # Generator
 
-Generator adalah pattern dimana Go `func` membuat `goroutine` yang melakukan suatu komputasi dan me-return receive-only `channel`. 
-
-Kemudian pemanggil `func` dapat membaca  `channel` tersebut untuk menerima value yang dihasilkan oleh `goroutine`.
+Generator adalah pattern dimana suatu `func` membuat `goroutine` yang melakukan suatu komputasi dan me-return receive-only `channel`yang dapat digunakan oleh pemanggil `func` untuk menerima value yang dihasilkan oleh `goroutine`tersebut.
 
 Contoh
 
