@@ -4,21 +4,62 @@ description: Func yang me-return channel
 
 # Generator
 
+Generator adalah pattern dimana Go `func` membuat `goroutine` yang dan me-return receive-only `channel`. 
+
+Kemudian pemanggil `func` dapat membaca  `channel` tersebut untuk menerima value yang dihasilkan oleh `goroutine`.
+
 Contoh
 
 ```go
-func boring(msg string) <-chan string { // Returns receive-only channel of strings.
-    c := make(chan string)
-    go func() { // We launch the goroutine from inside the function.
-        for i := 0; ; i++ {
-            c <- fmt.Sprintf("%s %d", msg, i)
-            time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
-        }
-    }()
-    return c // Return the channel to the caller.
+package main
+
+import (
+	"fmt"
+)
+
+// produsen mem-produce string sejumlah `num` yang diawali oleh `msgPrefix`.
+func produsen(msgPrefix string, num int) <-chan string { // Returns receive-only channel of strings.
+
+	// create channel yang akan digunakan mengirim data
+	// dari goroutine ke pemanggil func
+	c := make(chan string)
+
+	go func() { // buat goroutine dari dalam func
+
+		// close channel ketika goroutine sudah selesai
+		// sehingga pemanggil func tahu bahwa
+		// goroutine telah selesai dan tidak ada lagi 
+		// data yang akan dihasilkan
+		defer close(c)
+
+		for i := 0; i < num; i++ {
+			// buat string dengan format [msg_prefix]_[urutan]
+			// kemudian kirim ke channel c
+			c <- fmt.Sprintf("%s_%d", msgPrefix, i)
+		}
+
+	}()
+	// Return channel ke pemanggil
+	// sehingga bisa digunakan pemanggil untuk menerima 
+	// data dari goroutine
+	return c
+}
+
+func main() {
+	// panggil func `produsen` dan simpan channel hasil
+	// ke `ch`
+	ch := produsen("mystring", 5)
+	
+	// terima data dari produsen dengan for-loop ke
+	// channel hasil
+	for msg := range ch {
+		fmt.Printf("msg = %v\n", msg)
+	}
 }
 
 ```
+
+playground: [https://play.golang.org/p/rdmMwMzpQMS](https://play.golang.org/p/rdmMwMzpQMS)
 
 
 
