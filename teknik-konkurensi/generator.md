@@ -11,7 +11,9 @@ Generator adalah pattern dimana suatu `func` melakukan hal-hal berikut:
 
 Kemudian channel yang di-return  dapat digunakan oleh pemanggil `func` untuk menerima value yang dihasilkan oleh `goroutine`tersebut.
 
-Contoh
+ref: [https://talks.golang.org/2012/concurrency.slide\#25](https://talks.golang.org/2012/concurrency.slide#25)
+
+**Contoh**
 
 ```go
 package main
@@ -64,7 +66,14 @@ func main() {
 
 playground: [https://play.golang.org/p/rdmMwMzpQMS](https://play.golang.org/p/rdmMwMzpQMS)
 
-ref: [https://talks.golang.org/2012/concurrency.slide\#25](https://talks.golang.org/2012/concurrency.slide#25)
+Contoh penggunaan dalam dunia nyata adalah dengan memodifikasi `func` dalam goroutine untuk melakukan hal-hal sebagai berikut:
+
+* melakukan operasi database secara berulang-ulang, misalkan `select` 20 rows sebanyak 20 kali
+* memanggil REST API yang menerapkan pagination beberapa kali
+
+Dengan melakukan hal-hal tersebut didalam `goroutine`, pemanggil dapat melakukan pemrosesan lebih lanjut bersamaan dengan goroutine melakukan pekerjaannya. 
+
+
 
 
 
