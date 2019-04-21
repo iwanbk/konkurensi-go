@@ -13,7 +13,7 @@ Kemudian channel yang di-return  dapat digunakan oleh pemanggil `func` untuk men
 
 ref: [https://talks.golang.org/2012/concurrency.slide\#25](https://talks.golang.org/2012/concurrency.slide#25)
 
-**Contoh**
+#### contoh
 
 ```go
 package main
@@ -65,6 +65,8 @@ func main() {
 ```
 
 playground: [https://play.golang.org/p/rdmMwMzpQMS](https://play.golang.org/p/rdmMwMzpQMS)
+
+#### Contoh Penggunaan
 
 Contoh penggunaan dalam dunia nyata adalah dengan memodifikasi `func` dalam goroutine untuk melakukan hal-hal sebagai berikut:
 
