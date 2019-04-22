@@ -1,0 +1,2 @@
+# Teknik Konkurensi - TODO
+

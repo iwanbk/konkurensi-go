@@ -1,2 +1,0 @@
-# Channel untuk Menunggu Goroutine
-

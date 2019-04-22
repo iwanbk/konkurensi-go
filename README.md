@@ -1,6 +1,6 @@
 # Intro
 
-Buku/catatan kecil ini berisi tentang catatan penulis tentang konkurensi di bahasa pemrograman Go. 
+Catatan kecil ini berisi catatan penulis tentang konkurensi di bahasa pemrograman Go. 
 
 Konkurensi adalah perpaduan dari beberapa komputasi independen. Konkurensi berbeda dengan komputasi paralel \([https://talks.golang.org/2012/concurrency.slide\#7](https://talks.golang.org/2012/concurrency.slide#7)\).
 
